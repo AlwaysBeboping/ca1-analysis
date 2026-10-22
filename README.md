@@ -19,6 +19,10 @@
 | Requirements | [Use Case Catalogue](requirements/requirments.md#Use-case-catalogue) |
 | Requirements | [Non-functional requirements](requirements/requirments.md#non-functional-requirements) |
 | Requirements | [Buisness Rules](requirements/requirments.md#buisness-rules) |
+| Diagrams | [Club Use Cases](diagrams/club-use-cases.puml) |
+| Diagrams | [Coorinator Use Cases](diagrams/coorinator-use-cases.puml) |
+| Diagrams | [Staff Use Cases](diagrams/staff-use-cases.puml) |
+| Diagrams | [Domain Model](diagrams/domain-model.puml)|
 
 
 ## Scenario CA1-26-YSLC

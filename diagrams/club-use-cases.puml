@@ -1,0 +1,15 @@
+@startuml
+!pragma layout smetana
+left to right direction
+
+actor "Club Representative" as ClubRep
+
+rectangle "Youth Sports League Management System" {
+  usecase "UC01\nRegister a club" as UC01
+  usecase "UC02\nView fixtures" as UC02
+}
+
+ClubRep -- UC01
+ClubRep -- UC02
+
+@enduml

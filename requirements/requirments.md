@@ -15,28 +15,32 @@
 
 | ID | Functional Requirement | Priority |  Source |
 | ----------- | ----------- | ----------- | ----------- |
-| FR01 |    The system shall authorize league staff to register a new club                                             |  Must    |   League staff   |
-| FR02 |    The system shall allow an active Club view available matches for a selected date &  time                   |  Must    |      Club        |
-| FR03 |    The system shall prevent two confirmed matches from occupying the same facility during overlapping periods |  Must    |   Coordinator    | 
-| FR04 |    The system shall allow the coordinator to provisionally allocate a venue                                   |  Must    |   Coordinator    |
-| FR05 |    The system shall record fixture postponements or cancellations, their reasons and the decision status      |  Must    |   League staff   |
-| FR06 |    The system shall ecording unallocated requests and why they remain unallocated                             |  Should  |   League Staff   |
-| FR07 |    The system shall record the team, venue, start time, end time and status for each fixture                  |  Must    |   League Staff   | 
-| FR08 |    The system shall allow the manager to generate a venue-usage report for a selected date range              |  Could   |  League Manager  | 
+| FR01 |    The system shall authorize CLubs Representattives to register a new club                                   |  Must    |  Club Representative  |
+| FR02 |    The system shall allow an active Club view available matches for a selected date &  time                   |  Must    |      Club             |
+| FR03 |    The system shall prevent two confirmed matches from occupying the same facility during overlapping periods |  Must    |   Coordinator         | 
+| FR04 |    The system shall allow the coordinator to provisionally allocate a venue                                   |  Must    |   Coordinator         |
+| FR05 |    The system shall record fixture postponements or cancellations, their reasons and the decision status      |  Must    |   League staff        |
+| FR06 |    The system shall record unallocated requests and why they remain unallocated                               |  Should  |   League Staff        |
+| FR07 |    The system shall record the team, venue, start time, end time and status for each fixture                  |  Must    |   League Staff        | 
+| FR08 |    The system shall allow the manager to generate a venue-usage report for a selected date range              |  Could   |  League Manager       | 
+| FR09 |    The system shall allow the Coordinator to confirm a fixture allocation                                     |  Must    |   Coordinator         | 
+| FR10 |    The system shall allow authorised League Staff to record a result against an existing fixture              |  Could   |   League Staff        | 
+
 <br>
 
 ## Use-Case Catalogue
 
 | ID | Candidate Use Case | Primary Actor | Related Requirement |
 | --- | --- | --- | --- |
-| UC01 | Register a club                             | League Staff             | FR01 |
+| UC01 | Register a club                             | Club Representative      | FR01 |
 | UC02 | View available matches                      | Club                     | FR02 |
 | UC03 | Provisionally allocate a venue              | Coordinator              | FR04 |
 | UC04 | Record fixture postponement or cancellation | League Staff             | FR05 |
 | UC05 | Record an unallocated request               | League Staff             | FR06 |
 | UC06 | Maintain fixture details                    | League Staff             | FR07 |
 | UC07 | Generate a venue-usage report               | League Manager           | FR08 |
-
+| UC09 | Allocate fixture                            | Coordinator              | FR03, FR07, FR09 |
+| UC10 | Record a fixture result                     | League Staff             | FR10 |
 
 
 ## Non-Functional Requirements

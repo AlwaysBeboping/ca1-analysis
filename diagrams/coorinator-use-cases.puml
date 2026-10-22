@@ -1,0 +1,20 @@
+@startuml
+!pragma layout smetana
+left to right direction
+
+actor "Coordinator" as Coordinator
+
+rectangle "Youth Sports League Management System" {
+  usecase "UC03\nProvisionally allocate a venue" as UC03
+  usecase "UC09\nAllocate a fixture" as UC09
+}
+
+Coordinator -- UC03
+Coordinator -- UC09
+
+note bottom of UC09
+  FR03: Confirmed fixtures must not
+  overlap at the same venue.
+end note
+
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+!pragma layout smetana
+left to right direction
+
+actor "League Staff" as Staff
+actor "League Manager" as Manager
+
+rectangle "Youth Sports League Management System" {
+  usecase "UC04\nRecord fixture postponement\nor cancellation" as UC04
+  usecase "UC05\nRecord an unallocated\nfixture request" as UC05
+  usecase "UC06\nMaintain fixture details" as UC06
+  usecase "UC07\nGenerate a venue-usage report" as UC07
+  usecase "UC10\nRecord a fixture result" as UC10
+}
+
+Staff -- UC04
+Staff -- UC05
+Staff -- UC06
+Staff -- UC10
+
+Manager -- UC07
+
+@enduml

@@ -1,0 +1,168 @@
+@startuml
+!pragma layout smetana
+top to bottom direction
+skinparam classAttributeIconSize 0
+
+title Youth Sports League — Conceptual Domain Model
+
+class Club {
+  name
+  registrationStatus
+}
+
+class ClubRepresentative {
+  name
+  contactEmail
+}
+
+class ClubRegistration {
+  submissionDate
+  decisionStatus
+}
+
+class ExperienceEvidence {
+  description
+  reviewStatus
+}
+
+class Team {
+  name
+  ageGroup
+  suspensionStatus
+}
+
+class Player {
+  name
+  dateOfBirth
+}
+
+class Competition {
+  name
+  ageEligibilityRule
+}
+
+class TeamEntry {
+  submissionDate
+  status
+  eligibilityReviewStatus
+}
+
+class FixtureRequest {
+  requestedStartTime
+  requestedEndTime
+  status
+  unallocatedReason
+}
+
+class Fixture {
+  startTime
+  endTime
+  status
+  changeReason
+  changeDecisionStatus
+}
+
+class Venue {
+  name
+  approvedCapacity
+}
+
+class VenueAllocation {
+  startTime
+  endTime
+  status
+  plannedOccupancy
+}
+
+class MatchOfficial {
+  name
+}
+
+class OfficialAppointment {
+  role
+  status
+}
+
+class Result {
+  homeScore
+  awayScore
+  status
+  recordedAt
+  recordedBy
+}
+
+ClubRepresentative "0..*" -- "1..*" Club : represents
+ClubRepresentative "1" -- "0..*" ClubRegistration : submits
+Club "1" -- "0..*" ClubRegistration : is subject of
+ClubRegistration "1" -- "0..*" ExperienceEvidence : includes
+
+Club "1" -- "0..*" Team : fields
+Team "0..*" -- "0..*" Player : has members
+
+Team "1" -- "0..*" TeamEntry : submits
+Competition "1" -- "0..*" TeamEntry : receives
+
+Competition "1" -- "0..*" FixtureRequest : receives
+Team "1" -- "0..*" FixtureRequest : requests
+FixtureRequest "0..1" -- "0..1" Fixture : leads to
+
+Competition "1" -- "0..*" Fixture : contains
+TeamEntry "1" -- "0..*" Fixture : participates as home entry in
+TeamEntry "1" -- "0..*" Fixture : participates as away entry in
+
+Fixture "1" -- "0..*" VenueAllocation : has
+Venue "1" -- "0..*" VenueAllocation : is assigned through
+
+Fixture "1" -- "0..*" OfficialAppointment : has
+MatchOfficial "1" -- "0..*" OfficialAppointment : receives
+
+Fixture "1" -- "0..1" Result : has current result
+
+note bottom of TeamEntry
+  A team has at most one entry
+  in the same competition.
+
+  Both fixture entries must be accepted,
+  belong to that fixture's competition,
+  and represent different teams.
+
+  Player age eligibility requires
+  competition-specific assessment.
+end note
+
+note bottom of VenueAllocation
+  Status distinguishes provisional,
+  confirmed and released allocations.
+
+  A confirmed fixture has exactly
+  one confirmed venue allocation.
+
+  Confirmed allocations at the same
+  venue must not overlap. (FR03)
+
+  Planned occupancy must not exceed
+  approved capacity. (BR01)
+end note
+
+note bottom of ClubRegistration
+  Acceptance requires reviewed
+  prior-experience evidence. (BR03)
+end note
+
+note bottom of Fixture
+  A suspended team cannot obtain
+  a new fixture booking. (BR04)
+
+  Postponements and cancellations retain
+  a reason and decision status. (FR05)
+end note
+
+note bottom of Result
+  Status distinguishes an outcome
+  awaiting review from a final result.
+
+  recordedBy identifies the staff member
+  responsible for the recorded result.
+end note
+
+@enduml

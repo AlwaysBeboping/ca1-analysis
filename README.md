@@ -23,6 +23,10 @@
 | Diagrams | [Coorinator Use Cases](diagrams/coorinator-use-cases.puml) |
 | Diagrams | [Staff Use Cases](diagrams/staff-use-cases.puml) |
 | Diagrams | [Domain Model](diagrams/domain-model.puml)|
+| Decisions| [Decisions](decisions/decisions.md#decision-log)|
+| References| [References](references/references.md#references)|
+| References | [AI Interaction Log](references/AIInteractionLog.md#ai-interaction-log)|
+
 
 
 ## Scenario CA1-26-YSLC
